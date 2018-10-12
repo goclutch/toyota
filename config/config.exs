@@ -16,7 +16,10 @@ config :toyota, ToyotaWeb.Endpoint,
   render_errors: [view: ToyotaWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: Toyota.PubSub,
            adapter: Phoenix.PubSub.PG2]
-
+#Guardian config
+config :toyota, Toyota.Guardian,
+  issuer: "toyota",
+  secret_key: "sy/KaqbD9ZbZVr8YlB9c/Mjn/PvVc5w0hYS2QM6BSFbMX8aAcB8+pzXPYqul7XPf"
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

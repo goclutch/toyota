@@ -1,6 +1,6 @@
 APP="toyota"
 
-BUILD_HOST="167.99.57.130"
+BUILD_HOST="142.93.177.220"
 BUILD_USER="deploy"
 BUILD_AT="/tmp/edeliver/$APP/builds"
 
@@ -9,11 +9,11 @@ RELEASE_DIR="/tmp/edeliver/$APP/builds/_build/prod/rel/$APP"
 # prevent re-installing node modules; this defaults to "."
 GIT_CLEAN_PATHS="_build rel priv/static"
 
-# STAGING_HOSTS="167.99.57.130"
+# STAGING_HOSTS="142.93.177.220"
 # STAGING_USER="deploy"
 # TEST_AT="/home/deploy/staging"
 
-PRODUCTION_HOSTS="167.99.57.130"
+PRODUCTION_HOSTS="142.93.177.220"
 PRODUCTION_USER="deploy"
 DELIVER_TO="/home/deploy"
 

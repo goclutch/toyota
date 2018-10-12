@@ -43,7 +43,7 @@ defmodule Toyota.Mixfile do
       {:bcrypt_elixir, "~> 1.1"},
       {:guardian, "~> 1.1"},
       {:edeliver, "~> 1.6"},
-      {:distillery, "~> 2.0"}
+      {:distillery, "~> 2.0.10"}
     ]
   end
 

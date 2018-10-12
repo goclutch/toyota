@@ -41,7 +41,9 @@ defmodule Toyota.Mixfile do
       {:cowboy, "~> 1.0"},
       {:comeonin, "~> 4.1"},
       {:bcrypt_elixir, "~> 1.1"},
-      {:guardian, "~> 1.1"}
+      {:guardian, "~> 1.1"},
+      {:edeliver, "~> 1.6"},
+      {:distillery, "~> 2.0"}
     ]
   end
 

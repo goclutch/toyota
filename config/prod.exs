@@ -16,7 +16,7 @@ use Mix.Config
 config :toyota, ToyotaWeb.Endpoint,
   http: [port: 4000],
   load_from_system_env: true,
-  url: [host: "goclutch.io", port: 80],
+  url: [host: "goclutch.io", port: 443, scheme: "https"],
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true,
   code_reloader: false

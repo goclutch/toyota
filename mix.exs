@@ -20,7 +20,7 @@ defmodule Toyota.Mixfile do
   def application do
     [
       mod: {Toyota.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :absinthe_plug]
     ]
   end
 
@@ -39,11 +39,15 @@ defmodule Toyota.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
+      {:plug_cowboy, "~> 1.0"},
       {:comeonin, "~> 4.1"},
       {:bcrypt_elixir, "~> 1.1"},
       {:guardian, "~> 1.1"},
       {:edeliver, "~> 1.6"},
-      {:distillery, "~> 2.0.3"}
+      {:distillery, "~> 2.0.3"},
+      {:absinthe, "~> 1.4.13"},
+      {:absinthe_plug, "~> 1.4.6"},
+      {:absinthe_ecto, "~> 0.1.3"}
     ]
   end
 

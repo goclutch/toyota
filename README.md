@@ -1,4 +1,18 @@
-# Deployment Procedure
+# Deployment
+
+## Deployment Stack
+  * Distillery to build Erlang/OTP Release
+  * Edeliver to automate build of the Distillery and deployment to server
+    * Allows hot-code upgrades
+    * Built on remote host
+    * Can easily build, stage, and release on additional servers in the future
+  * Ubuntu 18.04x64 on Digital Ocean Droplet
+    * 1GB Memory / 25GB Disk
+  * SSL with Certbot and Lets Encrypt, auto-renewed by cron
+  * Nginx for reverse proxy and redirect
+  
+
+## Deployment Procedure
 
 1. Commit changes to **master** branch through direct commit, merge, or pull request.
 2. Run `$ mix edeliver build release production --verbose` to build release on remote server

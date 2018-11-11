@@ -11,6 +11,10 @@ defmodule ToyotaWeb.Router do
     plug Guardian.AuthPipeline
   end
 
+  pipeline :graphapi do
+    plug :accepts, ["json"]
+  end
+
   scope "/api/v1", ToyotaWeb do
     pipe_through :api
 
@@ -25,4 +29,16 @@ defmodule ToyotaWeb.Router do
     resources "/profiles", ProfileController, only: [:create, :show]
 
   end
+
+  scope "/graphapi" do
+    pipe_through :graphapi
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: ToyotaWeb.Schema
+
+    forward "/", Absinthe.Plug,
+      schema: ToyotaWeb.Schema
+
+  end
+  
 end

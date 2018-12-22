@@ -2,6 +2,7 @@ defmodule Toyota.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias Toyota.Accounts.User
+  alias Toyota.Accounts.Profile
 
   import Comeonin.Bcrypt, only: [hashpwsalt: 1]
 
@@ -10,6 +11,8 @@ defmodule Toyota.Accounts.User do
     field :password_hash, :string
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
+    field :token, :string
+    has_one :profile, Profile
 
     timestamps()
   end
@@ -36,4 +39,8 @@ defmodule Toyota.Accounts.User do
     end
   end
 
+  def store_token_changeset(%User{} = user, attrs) do
+    user
+    |> cast(attrs, [:token])
+  end
 end

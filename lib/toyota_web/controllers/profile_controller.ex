@@ -11,14 +11,14 @@ defmodule ToyotaWeb.ProfileController do
     render(conn, "index.json", profiles: profiles)
   end
 
-  def create(conn, %{"profile" => profile_params}) do
-    with {:ok, %Profile{} = profile} <- Accounts.create_profile(profile_params) do
-      conn
-      |> put_status(:created)
-      |> put_resp_header("location", profile_path(conn, :show, profile))
-      |> render("show.json", profile: profile)
-    end
-  end
+  # def create(conn, %{"profile" => profile_params}) do
+  #   with {:ok, %Profile{} = profile} <- Accounts.create_profile(profile_params) do
+  #     conn
+  #     |> put_status(:created)
+  #     |> put_resp_header("location", profile_path(conn, :show, profile))
+  #     |> render("show.json", profile: profile)
+  #   end
+  # end
 
   def show(conn, %{"id" => id}) do
     profile = Accounts.get_profile!(id)

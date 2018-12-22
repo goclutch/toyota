@@ -19,7 +19,12 @@ config :toyota, ToyotaWeb.Endpoint,
 #Guardian config
 config :toyota, Toyota.Guardian,
   issuer: "toyota",
-  secret_key: "sy/KaqbD9ZbZVr8YlB9c/Mjn/PvVc5w0hYS2QM6BSFbMX8aAcB8+pzXPYqul7XPf"
+  secret_key: "sy/KaqbD9ZbZVr8YlB9c/Mjn/PvVc5w0hYS2QM6BSFbMX8aAcB8+pzXPYqul7XPf",
+    # optional
+  verify_module: Guardian.JWT,
+  issuer: "Toyota",
+  ttl: {30, :days},
+  allowed_drift: 2000
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

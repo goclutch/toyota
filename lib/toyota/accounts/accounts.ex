@@ -2,15 +2,14 @@ defmodule Toyota.Accounts do
   @moduledoc """
   The Accounts context.
   """
-
   import Ecto.Query, warn: false
   alias Toyota.Repo
 
-  alias Toyota.Accounts.User
+  alias Toyota.Accounts.{User, Profile}
 
   alias Toyota.Guardian
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
-
+  require IEx
   @doc """
   Returns the list of users.
 
@@ -88,7 +87,18 @@ defmodule Toyota.Accounts do
     |> User.changeset(attrs)
     |> Repo.insert()
   end
+  
+  def store_token(%User{} = user, token) do
+    user
+    |> User.store_token_changeset(%{token: token})
+    |> Repo.update()
+  end
 
+  def revoke_token(%User{} = user, token) do
+    user
+    |> User.store_token_changeset(%{token: token})
+    |> Repo.update()
+  end
   @doc """
   Updates a user.
 
@@ -179,9 +189,10 @@ defmodule Toyota.Accounts do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_profile(attrs \\ %{}) do
+  def create_profile(parent, attrs \\ %{}) do
     %Profile{}
     |> Profile.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:user, parent)
     |> Repo.insert()
   end
 

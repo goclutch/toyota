@@ -47,7 +47,8 @@ defmodule Toyota.Mixfile do
       {:distillery, "~> 2.0.3"},
       {:absinthe, "~> 1.4.13"},
       {:absinthe_plug, "~> 1.4.6"},
-      {:absinthe_ecto, "~> 0.1.3"}
+      {:absinthe_ecto, "~> 0.1.3"},
+      {:cors_plug, "~> 1.5"},
     ]
   end
 

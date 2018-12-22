@@ -1,12 +1,14 @@
 defmodule Toyota.Accounts.Profile do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Toyota.Accounts.User
 
 
   schema "profiles" do
     field :first_name, :string
     field :last_name, :string
 
+    belongs_to :user, User
     timestamps()
   end
 
